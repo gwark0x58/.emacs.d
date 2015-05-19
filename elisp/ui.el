@@ -1,5 +1,7 @@
 ;; ui.el
 
+(require 'hl-indent)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -9,14 +11,16 @@
  '(custom-safe-themes
    (quote
     ("a041a61c0387c57bb65150f002862ebcfe41135a3e3425268de24200b82d6ec9" default)))
- '(tool-bar-mode nil)
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cursor ((t (:background "#FF0000" :foreground "#272822" :inverse-video t)))))
+ '(cursor ((t (:background "#FF0000" :foreground "#272822" :inverse-video t))))
+ '(hl-indent-block-face-1 ((t (:background "#333"))))
+ '(hl-indent-face ((t (:inherit (quote hl-indent-block-face-1))))))
 (set-face-attribute 'default nil :height 120)
 (global-hl-line-mode +1)
 (set-face-attribute 'region nil :background "#ebebeb")
@@ -29,7 +33,7 @@
 (setq css-indent-offset 2)
 (setq web-mode-markup-indent-offset 2)
 (setq-default indent-tabs-mode nil)
-(add-hook 'prog-mode-hook 'highlight-indentation-mode)
+(add-hook 'prog-mode-hook 'hl-indent-mode)
 (setq-default truncate-lines t)
 (add-hook 'emacs-startup-hook
 	(lambda () (split-window-right)))

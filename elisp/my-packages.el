@@ -15,7 +15,7 @@
 		company
 		exec-path-from-shell
 		git-gutter
-		highlight-indentation
+		hl-indent
 		ido-vertical-mode
 		monokai-theme
 		multiple-cursors
