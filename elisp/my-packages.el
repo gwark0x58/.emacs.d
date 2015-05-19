@@ -1,10 +1,23 @@
 ;; my-packages.el
 
+(require 'package)
+(add-to-list 'package-archives   '("melpa" . "http://melpa.org/packages/") t)
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize)
+
+(require 'cl)
+
 (defvar required-packages
 	'(
 		column-marker
 		company
+		exec-path-from-shell
+		git-gutter
+		highlight-indentation
 		ido-vertical-mode
+		monokai-theme
 		multiple-cursors
 		neotree
 		nyan-mode
@@ -13,8 +26,6 @@
 		scss-mode
 		web-mode
 	) "a list of packages to ensure are installed at launch.")
-
-(require 'cl)
 
 (defun packages-installed-p ()
 	(loop for p in required-packages
@@ -26,5 +37,5 @@
 	(package-refresh-contents)
 	(message "%s" " done.")
 	(dolist (p required-packages)
-		(when (not (packages-installed-p p))
+		(when (not (package-installed-p p))
 			(package-install p))))

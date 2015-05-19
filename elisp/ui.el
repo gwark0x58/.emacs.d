@@ -50,3 +50,5 @@
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.erb\\'"  .  web-mode))
+
+(global-git-gutter-mode +1)
