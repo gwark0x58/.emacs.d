@@ -27,6 +27,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq-default tab-width 2)
 (setq css-indent-offset 2)
+(setq web-mode-markup-indent-offset 2)
 (setq-default indent-tabs-mode nil)
 (add-hook 'prog-mode-hook 'highlight-indentation-mode)
 (setq-default truncate-lines t)
